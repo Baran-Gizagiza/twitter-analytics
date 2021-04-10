@@ -9,7 +9,7 @@
 
 
 ## How difficulty?
-### Yiu can use this app by three step
+### You can use this app by three step
 1. ``` $ git clone <github url> ```
 
 2. ``` $ docker-compose up -d --build ```
