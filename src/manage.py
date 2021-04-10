@@ -118,6 +118,7 @@ else:
             st.header('2-4. Single Regresion Analytics')
             reg_summary_4 = Static_Analysis().single_reg(df_quan, related, target_2)
             SNS_Graph().sns_scatter(df_quan, target_2, related, reg_summary_4, hue=hue_string, N=3)
+            st.dataframe(reg_summary_4)
 
             st.header('2-5. Multi Regresion Analytics')
             reg_summary_5 = Static_Analysis().multi_reg_scaled(df_quan, related, target_2)
@@ -131,7 +132,7 @@ else:
                 st.subheader("Non-Scaled")
                 st.dataframe(reg_summary_6.iloc[:, 1:])
 
-            st.header('3. Good tweet for {}'.format(target_2))
+            st.title('3. Good tweet for {}'.format(target_2))
             df_eval = df_reset.iloc[:, 6:].copy()
             for column in related:
                 df_eval = Static_Analysis().evaluation_percent(df_eval, column, 'eval_{}'.format(column), percent)
