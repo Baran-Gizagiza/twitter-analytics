@@ -10,15 +10,9 @@
 
 ## How difficulty?
 ### Yiu can use this app by three step
-1.
-"""
-$ git clone <github url>
-"""
+1. ``` $ git clone <github url> '''
 
-2.
-"""
-$ docker-compose up -d --build
-"""
+2. ``` $ docker-compose up -d --build ```
 
 3. Access to "localhost:8501" on Web browser
 
