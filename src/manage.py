@@ -12,7 +12,7 @@ import pandas as pd
 # 出力ファイルディレクトリとファイル名を指定してください
 Outputfile = "../output/better_tweet.xlsx"
 # Option: 分析したい文字列をリストで渡してください
-string_list = []    # 例: string_list = ['ブログ', 'Python', 'Docker']
+string_list = ['ブログ']    # 例: string_list = ['ブログ', 'Python', 'Docker']
 # 月ごとのフォロワー数を入力してください。新たに追加することもできます。
 follower = {
         '2020-06':15,
@@ -81,13 +81,13 @@ else:
     reg_summary_2 = Static_Analysis().multi_reg_scaled(df_month, related_month, target)
     reg_summary_3 = Static_Analysis().multi_reg(df_month, related_month, target)
     with st.beta_container():
-        col1, col2 = st.beta_columns([1, 2])
+        col1, col2 = st.beta_columns([1, 1])
     with col1:
         st.subheader("Scaled")
         st.dataframe(reg_summary_2)
     with col2:
-        st.subheader("Normal")
-        st.dataframe(reg_summary_3)
+        st.subheader("Non-Scaled")
+        st.dataframe(reg_summary_3.iloc[:, 1:])
 
     # "Target column"で選択したカラムの分析を行います
     analyze = st.sidebar.button('Analyze',)
@@ -123,13 +123,13 @@ else:
             reg_summary_5 = Static_Analysis().multi_reg_scaled(df_quan, related, target_2)
             reg_summary_6 = Static_Analysis().multi_reg(df_quan, related, target_2)
             with st.beta_container():
-                col3, col4 = st.beta_columns([1, 2])
+                col3, col4 = st.beta_columns([1, 1])
             with col3:
                 st.subheader("Scaled")
                 st.dataframe(reg_summary_5)
             with col4:
-                st.subheader("Normal")
-                st.dataframe(reg_summary_6)
+                st.subheader("Non-Scaled")
+                st.dataframe(reg_summary_6.iloc[:, 1:])
 
             st.header('3. Good tweet for {}'.format(target_2))
             df_eval = df_reset.iloc[:, 6:].copy()

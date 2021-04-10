@@ -2,9 +2,9 @@
 
 import streamlit as st
 import matplotlib.pyplot as plt
-import seaborn as sns; sns.set(font='DejaVu Sans')
+import seaborn as sns; sns.set(font='Yu Gothic') # sns.set(font='DejaVu Sans')
 
-@st.cache
+#@st.cache
 class SNS_Graph():
     def sns_scatter(self, df, target, related, reg_summary, hue=None, N=3):
         fdic = {
@@ -30,6 +30,7 @@ class SNS_Graph():
         if q == 0 or (q == 1 and r == 0):
             fig, axes = plt.subplots(1, N, figsize=(width, height))
             for idx, column in enumerate(related):
+                sns.set(font='Yu Gothic')
                 sns.scatterplot(data=df,
                                 x=column,
                                 y=target,
@@ -48,8 +49,6 @@ class SNS_Graph():
                 axes[idx].set_xlim(0)
                 axes[idx].set_ylim(-max(df[target])//10*3, max(df[target])*1.2)
                 axes[idx].legend(title="Hue: {}".format(hue), loc='lower right')
-            #fig.tight_layout()
-            st.pyplot(fig)
         else:
             if q >= 2 and r == 0:
                 fig, axes = plt.subplots(q, N, figsize=(width, height*q))
@@ -58,6 +57,7 @@ class SNS_Graph():
             for idx, column in enumerate(related):
                 x = idx // N
                 y = idx % N
+                sns.set(font='Yu Gothic')
                 sns.scatterplot(data=df,
                                 x=column,
                                 y=target,
@@ -76,5 +76,4 @@ class SNS_Graph():
                 axes[x, y].set_xlim(0)
                 axes[x, y].set_ylim(-max(df[target])//10*3, max(df[target])*1.2)
                 axes[x, y].legend(title="Hue: {}".format(hue), loc='lower right')
-            #fig.tight_layout()
-            st.pyplot(fig)
+        st.pyplot(fig)

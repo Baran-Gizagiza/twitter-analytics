@@ -4,7 +4,7 @@ import streamlit as st
 import datetime
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
-import seaborn as sns; sns.set(font='DejaVu Sans')
+import seaborn as sns; sns.set(font='Yu Gothic')
 
 @st.cache
 class Time_Analytics():
