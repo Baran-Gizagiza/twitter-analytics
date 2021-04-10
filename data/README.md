@@ -6,7 +6,7 @@
 https://analytics.twitter.com/
 
 
-## 2. Tweet daata
+## 2. Tweet data
 ### You can get the twitter analytics pages on "Tweet"
 ### Please check below site for detail
 
