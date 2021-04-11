@@ -5,9 +5,9 @@ import streamlit as st
 class Views():
     def corr_rank(self):
         corr_rank = st.sidebar.number_input(
-            'Select "corr_rank" (0.1 ~ 1.0)',
-            min_value=0.1,
-            max_value=1.0,
+            'Select "corr_rank" (0.10 ~ 1.00)',
+            min_value=0.10,
+            max_value=1.00,
             value=0.7
         )
         return corr_rank

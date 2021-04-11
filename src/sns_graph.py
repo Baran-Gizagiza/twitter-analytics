@@ -4,7 +4,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set(font='Yu Gothic') # sns.set(font='DejaVu Sans')
 
-#@st.cache
 class SNS_Graph():
     def sns_scatter(self, df, target, related, reg_summary, hue=None, N=3):
         fdic = {

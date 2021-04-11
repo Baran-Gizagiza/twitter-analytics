@@ -4,8 +4,9 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
-#@st.cache
+
 class PreProcessing():
+    @st.cache
     # 1％の外れ値を取り除いた変数を作成
     def quantile(self, df, var, num):
         q = df[var].quantile(num)

@@ -7,8 +7,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import f_regression
 from sklearn.preprocessing import StandardScaler
 
-@st.cache
+
 class Static_Analysis():
+    @st.cache
     def single_reg(self, df, related, target):
         d = {}
         for column in related:
@@ -23,7 +24,7 @@ class Static_Analysis():
                     .rename(columns={"index":"Feature", 0:'Coef', 1:target, 2: "R2"})
         return reg_sum
 
-
+    @st.cache
     def multi_reg_scaled(self, df, related, target):
         X, y = df[related], df[target]
         X_scaled = StandardScaler().fit_transform(X)
@@ -36,7 +37,7 @@ class Static_Analysis():
         reg_sum['p-values'] = p_values
         return reg_sum
 
-
+    @st.cache
     def multi_reg(self, df, related, target):
         X, y = df[related], df[target]
         reg = LinearRegression(fit_intercept=False)
@@ -50,7 +51,7 @@ class Static_Analysis():
         reg_sum['R2'] = r2
         return reg_sum
 
-
+    @st.cache
     def evaluation_percent(self, df, column, evaluation, percent=20):
         per = df[column].quantile(q=[(100-percent)/100]).iloc[0]
         df[evaluation] = df[column].apply(lambda x: 1 if x >= per else 0)
