@@ -1,15 +1,15 @@
 # :sparkles:Welcom to twitter-analytics app by Streamlit:sparkles:
 
 ## What is this app?
-### This is an Analytics app for your twitter
+This is an Analytics app for your twitter
 
 
 ## What is benefit on this app?
-### You can understand easier which tweet is better to get new followers.
+You can understand easier which tweet is better to get new followers.
 
 
 ## How difficulty?
-### You can use this app by three step
+You can use this app by three step
 1. ``` $ git clone <github url> ```
 
 2. ``` $ docker-compose up -d --build ```
