@@ -18,5 +18,5 @@ class Time_Analytics():
     @st.cache
     def trend_by_level(self, df, level_time='month', agg_iter='sum'):
         groupby_df = df.groupby(level=level_time).agg(agg_iter)
-        groupby_df['Engagement'] / groupby_df['Impression']
+        groupby_df["Eng_Ratio"] = groupby_df['Engagement'] / groupby_df['Impression'] / 1000
         return groupby_df

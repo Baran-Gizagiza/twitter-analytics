@@ -12,19 +12,20 @@ import pandas as pd
 # 出力ファイルディレクトリとファイル名を指定してください
 Outputfile = "../output/Good_Tweet.xlsx"
 # Option: 分析したい文字列をリストで渡してください
-string_list = ['Python']    # 例: string_list = ['ブログ', 'Python', 'Docker']
+string_list = ['', 'usdatascientist']    # 例: string_list = ['ブログ', 'Python', 'Docker']
 # 月ごとのフォロワー数を入力してください。新たに追加することもできます。
 follower = {
-        '2020-06':15,
-        '2020-07':45,
-        '2020-08':100,
-        '2020-09':70,
-        '2020-10':45,
-        '2020-11':60,
-        '2020-12':20,
-        '2021-01':40,
+        '2020-06':19,
+        '2020-07':14,
+        '2020-08':75,
+        '2020-09':45,
+        '2020-10':36,
+        '2020-11':18,
+        '2020-12':30,
+        '2021-01':53,
         '2021-02':20,
-        '2021-03':35,
+        '2021-03':40,
+        '2021-04':57,
         }
 
 target = '+1 followers'
@@ -60,7 +61,7 @@ if df[0]:
     df_reset = df.reset_index()
     df_reset["Year-Month"] = df_reset["date"].dt.strftime("%Y-%m")
     df_month = df_reset.groupby("Year-Month").sum()
-    df_month["Eng_Ratio"] = df_month["Engagement"] / df_month["Impression"]
+    df_month["Eng_Ratio"] = (df_month["Engagement"] / df_month["Impression"] / 1000)
     df_month[target] = pd.DataFrame(follower.values(), index=df_month.index)
     df_month = df_month.iloc[:, 6:]
     st.subheader(target)
